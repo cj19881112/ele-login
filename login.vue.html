@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh_CN.UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>饿了么商家版</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+
+    <link
+      rel="stylesheet"
+      href="http://at.alicdn.com/t/font_2118874_ytjc060hkub.css"
+    />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="wrap">
+        <div class="login-form card">
+          <div class="login-title text-normal">商家登录</div>
+          <div class="login-sub-title text-help">
+            为您量身定制的餐饮管理左右手
+          </div>
+
+          <div class="login-switch">
+            <img @click="toggleLoginMode" class="qrcode-img" :src="qrImgSrc" />
+          </div>
+
+          <div v-if="loginMode == 'mod_acct'">
+            <div class="flex tab-header">
+              <div
+                @click="loginSubType = 'mod_user_pass'"
+                class="tab-btn flex-1"
+                :class="loginSubType == 'mod_user_pass' ? 'tab-btn-active' : ''"
+              >
+                账号密码登录
+              </div>
+              <div
+                @click="loginSubType = 'mod_sms_code'"
+                class="tab-btn flex-1"
+                :class="loginSubType == 'mod_sms_code' ? 'tab-btn-active' : ''"
+              >
+                手机验证码登录
+              </div>
+            </div>
+
+            <div v-if="loginSubType == 'mod_user_pass'">
+              <div class="input-wrap">
+                <input
+                  v-model="username"
+                  class="input"
+                  placeholder="请输入账号"
+                />
+              </div>
+              <div class="input-wrap has-append">
+                <input
+                  v-model="password"
+                  type="password"
+                  class="input"
+                  placeholder="请输入密码"
+                />
+                <div class="input-append link text-link">忘记密码？</div>
+              </div>
+              <button
+                :disabled="!usernamePasswordSubmitable"
+                class="username-password-btn btn"
+              >
+                登录
+              </button>
+            </div>
+
+            <div v-if="loginSubType == 'mod_sms_code'">
+              <div class="input-wrap has-append">
+                <input
+                  v-model="phonenum"
+                  class="input"
+                  placeholder="输入管理员绑定手机号"
+                />
+                <button class="input-append sms-code-btn">获取验证码</button>
+              </div>
+              <div class="input-wrap">
+                <input
+                  v-model="smscode"
+                  class="input"
+                  placeholder="请输入验证码"
+                />
+              </div>
+              <div class="align-right">
+                <span class="text-link link">使用语音验证码</span>
+              </div>
+              <button
+                :disabled="!phonesmscodeSubmitable"
+                class="phone-sms-btn btn"
+              >
+                登录
+              </button>
+            </div>
+
+            <div class="form-footer">
+              <span class="link text-help font-size-small">登录遇到问题?</span>
+            </div>
+          </div>
+          <div v-else>
+            <div class="qr-title">打开饿了么商家版手机端扫码登录</div>
+            <img class="qr-img" src="./img/qr_code.png" />
+          </div>
+        </div>
+        <div class="regist card">
+          <span class="text-help">没有账号?&nbsp;&nbsp;</span
+          ><span class="text-link link">去开店</span>
+        </div>
+        <div class="download flex justify-between">
+          <span class="link text-link flex align-center">
+            <i class="iconfont icon-mobile mr-8"></i>手机端下载
+          </span>
+          <span class="link text-link flex align-center">
+            <i class="iconfont icon-PC mr-8"></i>电脑端下载
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data: {
+          loginMode: "mod_acct",
+          loginSubType: "mod_user_pass",
+          username: "",
+          password: "",
+          phonenum: "",
+          smscode: "",
+        },
+        methods: {
+          toggleLoginMode() {
+            if (this.loginMode == "mod_acct") {
+              this.loginMode = "mod_qrcode";
+            } else {
+              this.loginMode = "mod_acct";
+            }
+          },
+        },
+        computed: {
+          qrImgSrc() {
+            return this.loginMode == "mod_acct"
+              ? "./img/qrcode_login.png"
+              : "./img/username_login.png";
+          },
+
+          usernamePasswordSubmitable() {
+            return this.username && this.password;
+          },
+
+          phonesmscodeSubmitable() {
+            return this.phonenum && this.smscode;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

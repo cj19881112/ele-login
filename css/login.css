@@ -1,0 +1,226 @@
+body {
+  background-color: #f5f5f5;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+    Tahoma, Arial, "PingFang SC", "Heiti SC", "Microsoft YaHei", SimHei,
+    "WenQuanYi MicroHei", sans-serif !important;
+}
+
+.container {
+  padding-top: 80px;
+  text-align: center;
+}
+
+.wrap {
+  margin: auto;
+  width: 380px;
+  position: relative;
+}
+
+.card {
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.06);
+  padding: 24px 40px;
+}
+
+/* 标题 */
+.login-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.login-sub-title {
+  margin-bottom: 23px;
+}
+
+/* 登录方式切换 */
+.login-switch {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+/* 表单 */
+.tab-header {
+  margin-bottom: 23px;
+}
+
+.tab-btn {
+  text-align: center;
+  padding-bottom: 14px;
+  color: #5a5e66;
+  border-bottom: 2px solid #eee;
+  cursor: pointer;
+}
+
+.tab-btn-active {
+  color: #2d2f33;
+  border-bottom: 2px solid #5a5e66;
+}
+
+.input {
+  padding: 0 10px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 40px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-sizing: border-box;
+  vertical-align: middle;
+  color: #aaa;
+  border: 1px solid #e7ebf5;
+  transition: all 0.2s linear;
+}
+
+.has-append > .input {
+  padding-right: 110px;
+}
+
+.input:focus {
+  border: 1px solid #3d96e1;
+  background-color: #fcfcfc;
+  color: #333;
+  outline: none;
+}
+
+.input-wrap {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.input-append {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.sms-code-btn {
+  padding: 12px 15px;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-right: 0;
+  background-color: #0091ea;
+  cursor: pointer;
+}
+
+.btn {
+  margin-top: 18px;
+  padding: 0 16px;
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  color: #fff;
+  font-size: 16px;
+  line-height: 43px;
+  border-radius: 3px;
+  background-color: #0091ea;
+  cursor: pointer;
+}
+
+.btn:hover,
+.sms-code-btn:hover {
+  background-color: #0071b7;
+}
+
+.btn:disabled {
+  background-color: #bbdcfb !important;
+}
+
+.form-footer {
+  text-align: left;
+  margin-top: 20px;
+}
+
+/* 二维码 */
+.qr-title {
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  font-weight: 500;
+  color: #303133;
+  padding-bottom: 14px;
+}
+
+.qr-img {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+}
+
+/* 注册 */
+.regist {
+  margin: 20px 0;
+}
+
+/* 下载 */
+.download {
+  padding: 0 40px;
+}
+
+/* 辅助 */
+.text-help {
+  color: #999;
+}
+
+.text-link {
+  color: #1989fa;
+}
+
+.text-normal {
+  color: #2d2f33;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.font-size-small {
+  font-size: 12px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #c5c5c5;
+}
+
+.display-none {
+  display: none;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.align-center {
+  align-items: center;
+}

@@ -1,0 +1,18 @@
+{
+  "name": "ele_login",
+  "version": "1.0.0",
+  "description": "``` npm i browser-sync -g ```",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "onchange \"*.html\" \"**/*.css\" -- prettier --write {{changed}}",
+    "dev": "concurrently \"npm run prettier\" \"browser-sync start --server --files \"*\"\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "concurrently": "^5.3.0",
+    "onchange": "^7.0.2",
+    "prettier": "^2.1.2"
+  }
+}

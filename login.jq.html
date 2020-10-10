@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh_CN.UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>饿了么商家版</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+
+    <link
+      rel="stylesheet"
+      href="http://at.alicdn.com/t/font_2118874_ytjc060hkub.css"
+    />
+    ]
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrap">
+        <div class="login-form card">
+          <div class="login-title text-normal">商家登录</div>
+          <div class="login-sub-title text-help">
+            为您量身定制的餐饮管理左右手
+          </div>
+
+          <div class="login-switch">
+            <img class="qrcode-img" src="./img/qrcode_login.png" />
+            <img
+              class="username-img display-none"
+              src="./img/username_login.png"
+            />
+          </div>
+
+          <div class="user-name-password-panel">
+            <div class="flex tab-header">
+              <div
+                class="tab-btn username-password-tab-btn flex-1 tab-btn-active"
+              >
+                账号密码登录
+              </div>
+              <div class="tab-btn phone-smscode-tab-btn flex-1">
+                手机验证码登录
+              </div>
+            </div>
+
+            <div class="username-password-form">
+              <div class="input-wrap">
+                <input name="username" class="input" placeholder="请输入账号" />
+              </div>
+              <div class="input-wrap has-append">
+                <input
+                  name="password"
+                  type="password"
+                  class="input"
+                  placeholder="请输入密码"
+                />
+                <div class="input-append link text-link">忘记密码？</div>
+              </div>
+              <button class="username-password-btn btn">登录</button>
+            </div>
+
+            <div class="phone-smscode-form display-none">
+              <div class="input-wrap has-append">
+                <input
+                  name="phone_num"
+                  class="input"
+                  placeholder="输入管理员绑定手机号"
+                />
+                <button class="input-append sms-code-btn">获取验证码</button>
+              </div>
+              <div class="input-wrap">
+                <input
+                  name="sms_code"
+                  class="input"
+                  placeholder="请输入验证码"
+                />
+              </div>
+              <div class="align-right">
+                <span class="text-link link">使用语音验证码</span>
+              </div>
+              <button class="phone-sms-btn btn">登录</button>
+            </div>
+
+            <div class="form-footer">
+              <span class="link text-help font-size-small">登录遇到问题?</span>
+            </div>
+          </div>
+
+          <div class="qrcode-panel display-none">
+            <div class="qr-title">打开饿了么商家版手机端扫码登录</div>
+            <img class="qr-img" src="./img/qr_code.png" />
+          </div>
+        </div>
+        <div class="regist card">
+          <span class="text-help">没有账号?&nbsp;&nbsp;</span
+          ><span class="text-link link">去开店</span>
+        </div>
+        <div class="download flex justify-between">
+          <span class="link text-link flex align-center">
+            <i class="iconfont icon-mobile mr-8"></i>手机端下载
+          </span>
+          <span class="link text-link flex align-center">
+            <i class="iconfont icon-PC mr-8"></i>电脑端下载
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $(".username-password-tab-btn").click(function () {
+          $(".tab-btn").removeClass("tab-btn-active");
+          $(".username-password-tab-btn").addClass("tab-btn-active");
+
+          $(".phone-smscode-form").hide();
+          $(".username-password-form").show();
+        });
+
+        $(".phone-smscode-tab-btn").click(function () {
+          $(".tab-btn").removeClass("tab-btn-active");
+          $(".phone-smscode-tab-btn").addClass("tab-btn-active");
+
+          $(".username-password-form").hide();
+          $(".phone-smscode-form").show();
+        });
+
+        $(".qrcode-img").click(function () {
+          $(".qrcode-img").hide();
+          $(".user-name-password-panel").hide();
+          $(".qrcode-panel").show();
+          $(".username-img").show();
+        });
+
+        $(".username-img").click(function () {
+          $(".qrcode-panel").hide();
+          $(".username-img").hide();
+          $(".qrcode-img").show();
+          $(".user-name-password-panel").show();
+        });
+
+        $("input").keyup(function () {
+          var username = $("input[name=username]").val();
+          var password = $("input[name=password]").val();
+          $(".username-password-btn").attr("disabled", !username || !password);
+
+          var phone_num = $("input[name=phone_num]").val();
+          var sms_code = $("input[name=sms_code]").val();
+          $(".phone-sms-btn").attr("disabled", !phone_num || !sms_code);
+        });
+
+        $(".btn").attr("disabled", true);
+      });
+    </script>
+  </body>
+</html>
